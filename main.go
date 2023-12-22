@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	synchronization.WithoutMutex()
+	synchronization.WithoutAtomic()
 }
