@@ -1,7 +1,10 @@
 package main
 
-import "github.com/facundocarballo/go-concurrency/goroutines"
+import (
+	"github.com/facundocarballo/go-concurrency/synchronization"
+)
 
 func main() {
-	goroutines.WithConcurrency()
+	// goroutines.WithConcurrency()
+	synchronization.WithoutChannels()
 }
