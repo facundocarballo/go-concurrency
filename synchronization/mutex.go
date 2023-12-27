@@ -39,20 +39,24 @@ func WithMutex() {
 }
 
 func WithoutMutex() {
-	initTime := time.Now()
-	balance := 0
+	for {
+		initTime := time.Now()
+		balance := 0
 
-	var wg sync.WaitGroup
-	for i := 0; i < 10; i++ {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			MDoWork(&balance, false)
-		}()
+		var wg sync.WaitGroup
+		for i := 0; i < 10; i++ {
+			wg.Add(1)
+			go func() {
+				defer wg.Done()
+				MDoWork(&balance, false)
+			}()
+		}
+		fmt.Printf("[WithoutMutex] waiting Goroutines...\n")
+		wg.Wait()
+		if balance == 10 {
+			continue
+		}
+		finishTime := time.Now()
+		fmt.Printf("[WithoutMutex] executed in %d seconds. Balance: %d\n", finishTime.Second()-initTime.Second(), balance)
 	}
-	fmt.Printf("[WithoutMutex] waiting Goroutines...\n")
-	wg.Wait()
-
-	finishTime := time.Now()
-	fmt.Printf("[WithoutMutex] executed in %d seconds. Balance: %d\n", finishTime.Second()-initTime.Second(), balance)
 }
