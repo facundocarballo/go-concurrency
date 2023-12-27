@@ -124,14 +124,14 @@ Select statements in Golang, allow you to handle the consumption of multiple cha
 
     func ProducerInt() {
         for {
-            ch <- 1
+            chInt <- 1
             time.Sleep(time.Second * 3)
         }
     }
 
     func ProducerFloat() {
         for {
-            ch <- float64(1)
+            chFloat <- float64(1)
             time.Sleep(time.Second * 3)
         }
     }
