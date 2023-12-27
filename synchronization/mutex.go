@@ -51,7 +51,6 @@ func WithoutMutex() {
 				MDoWork(&balance, false)
 			}()
 		}
-		fmt.Printf("[WithoutMutex] waiting Goroutines...\n")
 		wg.Wait()
 		if balance == 10 {
 			continue
