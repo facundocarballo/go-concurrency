@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	problems.RaceCondition()
+	problems.Deadlock()
 }
