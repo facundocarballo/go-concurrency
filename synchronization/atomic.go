@@ -7,8 +7,8 @@ import (
 	"time"
 )
 
-func ADoWork(balance *int64, whitMutext bool) {
-	if whitMutext {
+func ADoWork(balance *int64, whitAtomic bool) {
+	if whitAtomic {
 		atomic.AddInt64(balance, 1)
 	} else {
 		*balance++
