@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	problems.Deadlock()
+	problems.Starvation()
 }
