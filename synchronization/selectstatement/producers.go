@@ -40,6 +40,8 @@ func ExecuteProducers(
 ) {
 	var wg sync.WaitGroup
 
+	wg.Add(3)
+
 	go func(ch chan int) {
 		defer wg.Done()
 		ProducerInt(ch)
