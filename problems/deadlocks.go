@@ -23,14 +23,14 @@ func GoroutineA() {
 }
 
 func GoroutineB() {
-	mutexB.Lock()
 	mutexA.Lock()
+	mutexB.Lock()
 
 	resourceA++
 	resourceB++
 
-	mutexB.Unlock()
 	mutexA.Unlock()
+	mutexB.Unlock()
 }
 
 func Deadlock() {
@@ -40,16 +40,12 @@ func Deadlock() {
 
 	go func() {
 		defer wg.Done()
-		for {
-			GoroutineA()
-		}
+		GoroutineA()
 	}()
 
 	go func() {
 		defer wg.Done()
-		for {
-			GoroutineB()
-		}
+		GoroutineB()
 	}()
 
 	wg.Wait()

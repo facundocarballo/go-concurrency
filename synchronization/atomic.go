@@ -54,5 +54,6 @@ func WithoutAtomic() {
 		}
 		finishTime := time.Now()
 		fmt.Printf("[WithoutAtomic] executed in %d seconds. Balance: %d\n", finishTime.Second()-initTime.Second(), balance)
+		break
 	}
 }

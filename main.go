@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/facundocarballo/go-concurrency/problems"
+	"github.com/facundocarballo/go-concurrency/synchronization"
 )
 
 func main() {
-	problems.RaceCondition()
+	synchronization.WithAtomic()
 }

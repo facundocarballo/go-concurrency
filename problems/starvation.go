@@ -17,11 +17,13 @@ func GoroutineC() {
 }
 
 func Starvation() {
-	mutexValue.Lock()
+
 	go GoroutineC()
 
 	for {
+		mutexValue.Lock()
 		fmt.Printf("Starvation...\n")
 		time.Sleep(time.Second * 3)
+		mutexValue.Unlock()
 	}
 }
