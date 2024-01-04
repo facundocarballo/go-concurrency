@@ -247,7 +247,7 @@ Here we want to make sure that only one Goroutine can access a particular resour
 ```
 It's the same example as the Mutex, but using **Atomic**
 
-## Problems of Concurrency
+## Concurrency Problems
 
 ### Race Conditions
 ![Race Conditions](https://i.ibb.co/P6F14Jb/race-conditions.png)
